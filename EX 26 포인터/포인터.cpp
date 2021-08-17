@@ -49,6 +49,22 @@
 // const int x{ 10 }; 
 //	const int* p = &x;
 	
+// 오른쪽에서 왼쪽으로 읽어보면 해답이 보임
+// 
+
+// 1. 식별자(Identifier : 함수명, 변수명)를 찾는다.
+	// 2. 오른쪽으로 읽기
+	//	괄호 ')'가 나오면 우선순위에 따라 왼쪽으로 읽기
+	//	오른쪽으로 다 읽으면 끝
+	// 3. 왼쪽으로 읽기
+		// * : pointer to
+		// [] : array of
+		// () : fnction returning
+//		
+// ex) int *num[3]; == num is 3-array of pointer to int		, int *num[3] { &x, &y, &z }
+// ex) int (*num)[3]; == num is pointer to 3-array of int	, int (*num)[3] = num;
+// ex) int* (*(*array[5])())(); array is 5-array of pointer to function returning pointer to function returning pointer to int
+// 
 // 포인터 읽는 법 right -> left
 //	int x{ 10 }, y{ 10 };			const int* p1 = 상수형 정수를 가르키는 포인터	//상수를 가르키는 포인터
 //	const int* p1;
