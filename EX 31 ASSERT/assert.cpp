@@ -58,6 +58,7 @@ int main()
 	{
 		std::cerr << error.what() << std::endl;
 	}
+	std::cout << "ver2";
 
 
 }
