@@ -95,6 +95,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EX 30 에러(예외처리) 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EX 31 ASSERT", "..\EX 31 ASSERT\EX 31 ASSERT.vcxproj", "{30A66CBF-3868-4D05-909A-DC2F99B8786F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EX TEST 변수와 제어구문 정리", "..\EX TEST 변수와 제어구문 정리\EX TEST 변수와 제어구문 정리.vcxproj", "{8B461609-6243-4670-8895-F7949E260351}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EX 소코반(창고지기) Game 예제", "..\EX 소코반(창고지기) Game 예제\EX 소코반(창고지기) Game 예제.vcxproj", "{F86D68F0-8B2B-42D0-A713-27819235641C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -471,6 +475,22 @@ Global
 		{30A66CBF-3868-4D05-909A-DC2F99B8786F}.Release|x64.Build.0 = Release|x64
 		{30A66CBF-3868-4D05-909A-DC2F99B8786F}.Release|x86.ActiveCfg = Release|Win32
 		{30A66CBF-3868-4D05-909A-DC2F99B8786F}.Release|x86.Build.0 = Release|Win32
+		{8B461609-6243-4670-8895-F7949E260351}.Debug|x64.ActiveCfg = Debug|x64
+		{8B461609-6243-4670-8895-F7949E260351}.Debug|x64.Build.0 = Debug|x64
+		{8B461609-6243-4670-8895-F7949E260351}.Debug|x86.ActiveCfg = Debug|Win32
+		{8B461609-6243-4670-8895-F7949E260351}.Debug|x86.Build.0 = Debug|Win32
+		{8B461609-6243-4670-8895-F7949E260351}.Release|x64.ActiveCfg = Release|x64
+		{8B461609-6243-4670-8895-F7949E260351}.Release|x64.Build.0 = Release|x64
+		{8B461609-6243-4670-8895-F7949E260351}.Release|x86.ActiveCfg = Release|Win32
+		{8B461609-6243-4670-8895-F7949E260351}.Release|x86.Build.0 = Release|Win32
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Debug|x64.ActiveCfg = Debug|x64
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Debug|x64.Build.0 = Debug|x64
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Debug|x86.ActiveCfg = Debug|Win32
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Debug|x86.Build.0 = Debug|Win32
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Release|x64.ActiveCfg = Release|x64
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Release|x64.Build.0 = Release|x64
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Release|x86.ActiveCfg = Release|Win32
+		{F86D68F0-8B2B-42D0-A713-27819235641C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,2 +1,3 @@
 ﻿  열거형.cpp
-  EX 11.vcxproj -> D:\Git hub\GameCanvus C++\EX1\Debug\EX 11.exe
+D:\Git hub\GameCanvus C++\C---basic-study-\EX 11\열거형.cpp(8,2): error C2332: 'enum': 태그 이름이 없습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\EX 11\열거형.cpp(8,2): error C2059: 구문 오류: 'return'

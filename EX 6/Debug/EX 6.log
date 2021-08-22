@@ -1,2 +1,2 @@
 ﻿  EX 6.cpp
-D:\Git hub\GameCanvus C++\EX 6\EX 6.cpp(24): error C4700: 초기화되지 않은 'result' 지역 변수를 사용했습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\EX 6\EX 6.cpp(24): error C4700: 초기화되지 않은 'result' 지역 변수를 사용했습니다.
