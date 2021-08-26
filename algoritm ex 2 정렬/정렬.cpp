@@ -66,6 +66,19 @@ void Selection_Sort(int input[], int count)
 		Swap(input[min_value], input[i]);
 	}
 }
+//»ğÀÔ Á¤·Ä
+void Insertion_Sort(int input[], int count)
+{
+	for (int i = 1; i < count; ++i)
+	{
+		int Target_Value = input[i];
+		for (int j = i - 1; j >= 0; --j)
+		{
+			if (Target_Value < input[j])
+				Swap(input[j], input[j + 1]);
+		}
+	}
+}
 
 
 int main()
@@ -75,9 +88,11 @@ int main()
 
 	//Sequential_Sort(array, Array_Size);
 
-	Bubble_Sort(array, Array_Size);
+	//Bubble_Sort(array, Array_Size);
 
 	//Selection_Sort(array, Array_Size);
+
+	Insertion_Sort(array, Array_Size);
 
 	PrintArray(array, Array_Size);
 
