@@ -1,5 +1,7 @@
 #include <iostream>
 
+void merge(int input[], int start, int half, int end);
+
 void PrintArray(int input[], int count)
 {
 	for (int i = 0; i < count; ++i)
@@ -80,6 +82,67 @@ void Insertion_Sort(int input[], int count)
 	}
 }
 
+void Merge_Sort(int input[], int start, int end)
+{
+	if (start >= end)
+	{
+		return;
+	}
+	int half = (start + end) / 2;
+
+	Merge_Sort(input, start, half);
+	Merge_Sort(input, half + 1, end);
+
+	merge(input, start, half, end);
+}
+
+void merge(int input[], int start, int half, int end)
+{
+	int	 Left{ start };
+	int	 Right{ half + 1 };
+	int* pTemp = new int[end + 1]{ 0 };
+	//int temp[end + 1];
+	int  pIndex{ start };
+
+	while (Left <= half && Right <= end)
+	{
+		if (input[Left] < input[Right])
+		{
+			pTemp[pIndex] = input[Left++];
+			//++Left;
+			++pIndex;
+		}
+		else
+		{
+			pTemp[pIndex] = input[Right++];
+			//++Right;
+			++pIndex;
+		}
+		//++pIndex;
+	}
+	while (Left <= half)
+	{
+		pTemp[pIndex] = input[Left];
+		++pIndex;
+		++Left;
+	}
+	while (Right <= end)
+	{
+		pTemp[pIndex++] = input[Right];
+		++pIndex;
+		++Right;
+	}
+	
+	pIndex = 0;
+
+	for (int i = start; i <= end; ++i)
+	{
+		input[i] = pTemp[i];
+		//++pIndex;
+	}
+	delete[] pTemp;
+}
+
 
 int main()
 {
@@ -92,8 +155,9 @@ int main()
 
 	//Selection_Sort(array, Array_Size);
 
-	Insertion_Sort(array, Array_Size);
+	//Insertion_Sort(array, Array_Size);
 
+	Merge_Sort(array, 0, Array_Size - 1);
 	PrintArray(array, Array_Size);
 
 
