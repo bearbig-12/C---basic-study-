@@ -35,16 +35,16 @@ int main()
 	const int NumAarray{ 10 };
 	int scores[NumAarray]{ 10, 30, 20, 50, 70, 65, 72, 63, 90, 11 };
 
-	auto startTime = std::chrono::system_clock::now();
+	//auto startTime = std::chrono::system_clock::now();
 	Sort(scores, NumAarray, Asceding);
-	auto endTime = std::chrono::system_clock::now();
+	//auto endTime = std::chrono::system_clock::now();
 
-	auto Duration = endTime - startTime;
-	std::cout << "Sort() : " << Duration.count() << "ms" << std::endl;
+	//auto Duration = endTime - startTime;
+	//std::cout << "Sort() : " << Duration.count() << "ms" << std::endl;
 
-	/*for (int i = 0; i < NumAarray; ++i)
+	for (int i = 0; i < NumAarray; ++i)
 	{
 		std::cout << scores[i] << " , ";
-	}*/
+	}
 }
 // 27 27 24 25 23

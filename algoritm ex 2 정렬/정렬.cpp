@@ -100,9 +100,12 @@ void merge(int input[], int start, int half, int end)
 {
 	int	 Left{ start };
 	int	 Right{ half + 1 };
-	int* pTemp = new int[end + 1]{ 0 };
+
+	int* pTemp = new int[end +1]{ 0 };
+
 	//int temp[end + 1];
-	int  pIndex{ start };
+
+	int  pIndex{ 0 };
 
 	while (Left <= half && Right <= end)
 	{
@@ -122,27 +125,57 @@ void merge(int input[], int start, int half, int end)
 	}
 	while (Left <= half)
 	{
-		pTemp[pIndex] = input[Left];
-		++pIndex;
-		++Left;
+		pTemp[pIndex++] = input[Left++];
+	
 	}
 	while (Right <= end)
 	{
-		pTemp[pIndex++] = input[Right];
-		++pIndex;
-		++Right;
+		pTemp[pIndex++] = input[Right++];
 	}
 	
 	pIndex = 0;
 
 	for (int i = start; i <= end; ++i)
 	{
-		input[i] = pTemp[i];
+		input[i] = pTemp[pIndex++];
 		//++pIndex;
 	}
 	delete[] pTemp;
 }
+void Quick_Sort(int input[], int left, int right)
+{
+	int i = left;
+	int j = right;
+	int pivot = input[ (left + right) / 2 ];
+	
+	do // 원소가 1개일때 i와j가 같기 때문에 무조건 한번 실행한후 끝에서 i 와 j가 교차하는지 체크
+	{
+		while (input[i] < pivot)
+		{
+			i++;
+		}
+		while (input[j] > pivot)
+		{
+			j--;
+		}
+		if (i <= j)	// i와j가 크로스가 일어나지 않은 경우에만 스왑
+		{
+			Swap(input[i], input[j]);
+			i++;
+			j--;
+		}
+		if (left < j)
+		{
+			Quick_Sort(input, left, j);
 
+		}
+		if (i < right)
+		{
+			Quick_Sort(input, i, right);
+
+		}
+	} while (i <= j);
+}
 
 int main()
 {
@@ -157,7 +190,10 @@ int main()
 
 	//Insertion_Sort(array, Array_Size);
 
-	Merge_Sort(array, 0, Array_Size - 1);
+	//Merge_Sort(array, 0, Array_Size - 1);
+
+	Quick_Sort(array, 0, Array_Size - 1);
+
 	PrintArray(array, Array_Size);
 
 
