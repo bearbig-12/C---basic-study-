@@ -164,17 +164,19 @@ void Quick_Sort(int input[], int left, int right)
 			i++;
 			j--;
 		}
-		if (left < j)
-		{
-			Quick_Sort(input, left, j);
-
-		}
-		if (i < right)
-		{
-			Quick_Sort(input, i, right);
-
-		}
+		
 	} while (i <= j);
+
+	if (left < j)
+	{
+		Quick_Sort(input, left, j);
+
+	}
+	if (i < right)
+	{
+		Quick_Sort(input, i, right);
+
+	}
 }
 
 int main()
