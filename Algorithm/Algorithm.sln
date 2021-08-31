@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithm", "Algorithm.vcxproj", "{CB9208A9-6A73-4B43-9C5D-347CF831ECEF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algoritm EX 1", "..\algoritm EX 1\algoritm EX 1.vcxproj", "{5A702BB1-074A-4D34-8246-82DD5038AC88}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algorithm EX 1", "..\algoritm EX 1\algoritm EX 1.vcxproj", "{5A702BB1-074A-4D34-8246-82DD5038AC88}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algoritm ex 2 정렬", "..\algoritm ex 2 정렬\algoritm ex 2 정렬.vcxproj", "{13340E22-B938-4259-9009-63D7FB14DDC2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algorithm ex 2 정렬", "..\algoritm ex 2 정렬\algoritm ex 2 정렬.vcxproj", "{13340E22-B938-4259-9009-63D7FB14DDC2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algoritm ex 3 stack", "..\algoritm ex 3 stack\algoritm ex 3 stack.vcxproj", "{9B33A8D1-8909-4FBC-8D01-9C266F5AE027}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algorithm ex 3 stack", "..\algoritm ex 3 stack\algoritm ex 3 stack.vcxproj", "{9B33A8D1-8909-4FBC-8D01-9C266F5AE027}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algorithm Ex 4 queue", "..\algorithm ex 4 Queue\algorithm ex 4 Queue.vcxproj", "{85FDE4A4-166A-4E0B-9018-FB8187B78158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{9B33A8D1-8909-4FBC-8D01-9C266F5AE027}.Release|x64.Build.0 = Release|x64
 		{9B33A8D1-8909-4FBC-8D01-9C266F5AE027}.Release|x86.ActiveCfg = Release|Win32
 		{9B33A8D1-8909-4FBC-8D01-9C266F5AE027}.Release|x86.Build.0 = Release|Win32
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Debug|x64.ActiveCfg = Debug|x64
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Debug|x64.Build.0 = Debug|x64
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Debug|x86.ActiveCfg = Debug|Win32
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Debug|x86.Build.0 = Debug|Win32
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Release|x64.ActiveCfg = Release|x64
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Release|x64.Build.0 = Release|x64
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Release|x86.ActiveCfg = Release|Win32
+		{85FDE4A4-166A-4E0B-9018-FB8187B78158}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

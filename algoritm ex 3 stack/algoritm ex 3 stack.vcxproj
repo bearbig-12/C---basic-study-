@@ -24,6 +24,7 @@
     <ProjectGuid>{9b33a8d1-8909-4fbc-8d01-9c266f5ae027}</ProjectGuid>
     <RootNamespace>algoritmex3stack</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>algorithm ex 3 stack</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

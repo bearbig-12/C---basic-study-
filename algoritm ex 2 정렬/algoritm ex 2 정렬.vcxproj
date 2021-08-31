@@ -24,6 +24,7 @@
     <ProjectGuid>{13340e22-b938-4259-9009-63d7fb14ddc2}</ProjectGuid>
     <RootNamespace>algoritmex2정렬</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>algorithm ex 2 정렬</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -60,7 +60,7 @@ void Input(Stack& info)
 
 		PrintArray(info);
 
-		int value;
+		int value{};
 
 		std::cout << "Type : ";
 		std::cin >> type;
