@@ -79,7 +79,28 @@ void Queue_Input(Queue& queue)
 		std::cout << "Type : ";
 		std::cin >> type;
 		std::cout << std::endl;
-		if (type == 3)
+		switch (type)
+		{
+		case PUSH:
+		{
+			int value;	// 스위치 안에서 변수를 만들기 위해서는 {}로 싸줘야 한다.
+			std::cout << '\t' << "Value : ";
+			std::cin >> value;
+			Push(queue, value);
+			break;
+		}
+		case POP:
+			Pop(queue);
+			break;
+
+		case STOP:
+			return;
+			break;
+
+		default:
+			std::cout << "Please type valid number" << std::endl;
+		}
+		/*if (type == 3)
 		{
 			break;
 		}
@@ -97,7 +118,7 @@ void Queue_Input(Queue& queue)
 		else if (type != 1 && type != 2)
 		{
 			std::cout << " Please type valid number (1 or 2) " << std::endl;
-		}
+		}*/
 
 	}
 
