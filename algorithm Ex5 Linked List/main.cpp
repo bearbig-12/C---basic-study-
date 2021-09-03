@@ -12,9 +12,14 @@ int main()
 	CreateMonster(myList, "Wolf", 10);
 	CreateMonster(myList, "Slime", 20);
 	CreateMonster(myList, "Demon", 100);
-	PrintAll(myList.pHead);
-	DeleteAll(myList);
-	PrintAll(myList.pHead);
+	
+	Insert(myList, "Demon","Zombie", 200);
+
+	Print_Recursive2(myList, myList.pHead);
+	Delete(myList, "Slime");
+	Print_Recursive2(myList, myList.pHead);
+	
+
 	//PrintMonster(myList);
 	//std::cout << "Count : " << MonsterCount(myList) << std::endl;
 
@@ -24,4 +29,6 @@ int main()
 	{
 		std::cout << "Found" << std::endl;
 	}*/
+
+	//DeleteAll(myList);
 }
