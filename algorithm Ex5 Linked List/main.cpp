@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
 #include "LinkedList.h"
+#include "DoubleLinkedList.h"
 
 
 
 
 int main()
 {
-	LinkedList myList;
+	/*LinkedList myList;
 
 	CreateMonster(myList, "Wolf", 10);
 	CreateMonster(myList, "Slime", 20);
@@ -18,7 +19,7 @@ int main()
 	Print_Recursive2(myList, myList.pHead);
 	Delete(myList, "Slime");
 	Print_Recursive2(myList, myList.pHead);
-	
+	*/
 
 	//PrintMonster(myList);
 	//std::cout << "Count : " << MonsterCount(myList) << std::endl;
@@ -31,4 +32,17 @@ int main()
 	}*/
 
 	//DeleteAll(myList);
+
+	DoubleLinkedList myList;
+
+	CreateMonster(myList, "Wolf", 10);
+	CreateMonster(myList, "Slime", 20);
+
+	PrintMonster(myList);
+
+	Delete(myList, "Wolf");
+
+	std::cout << MonsterCount(myList) << std::endl;
+
+	DeleteAll(myList);
 }
