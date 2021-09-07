@@ -86,27 +86,19 @@ bool Delete(DoubleLinkedList& list, std::string name)
 		// 2. pHead = element;
 		// 3. pTail = element;
 		// 4. else;
-		if (list.pHead == element)
+		if (element->pPre == nullptr)
 		{
 			// 맨 첫원소 지우기
 			list.pHead = element->pNext;
-			if (element->pNext != nullptr)
-			{
-				element->pNext->pPre = nullptr;
-			}
 		}
 		else
 		{
 			element->pPre->pNext = element->pNext;
 		}
-		if (list.pTail == element)
+		if (element->pNext == nullptr)
 		{
 			// 맨 뒤원소 지우기
 			list.pTail = element->pPre;
-			if (element->pPre != nullptr)
-			{
-				element->pPre->pNext = nullptr;
-			}
 		}
 		else
 		{

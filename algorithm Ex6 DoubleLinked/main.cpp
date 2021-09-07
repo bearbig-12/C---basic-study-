@@ -7,7 +7,7 @@
 
 int main()
 {
-	DoubleLinkedList myList;
+	/*DoubleLinkedList myList;
 
 	CreateMonster(myList, "Wolf", 10);
 	CreateMonster(myList, "Slime", 20);
@@ -18,7 +18,9 @@ int main()
 
 	std::cout << MonsterCount(myList) << std::endl;
 
-	DeleteAll(myList);
+	DeleteAll(myList);*/
+
+
 
 
 }
