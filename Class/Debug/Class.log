@@ -1,0 +1,5 @@
+﻿  ClassMain.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\Class\ClassMain.cpp(40,6): warning C4101: 'happy' :참조되지 않은 지역 변수입니다.
+  intro.cpp
+  코드를 생성하고 있습니다...
+  Class.vcxproj -> D:\Git hub\GameCanvus C++\C---basic-study-\Class\Debug\Class.exe

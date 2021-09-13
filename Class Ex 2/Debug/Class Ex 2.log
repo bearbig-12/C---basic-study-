@@ -1,0 +1,8 @@
+﻿  DogCat.cpp
+  main.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\Class Ex 2\main.cpp(17,20): warning C4101: 'skill' :참조되지 않은 지역 변수입니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class Ex 2\main.cpp(18,24): warning C4101: 'ivy' :참조되지 않은 지역 변수입니다.
+  Warrior.cpp
+  코드를 생성하고 있습니다...
+main.obj : error LNK2005: _main이(가) DogCat.obj에 이미 정의되어 있습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class\Debug\Class Ex 2.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.
