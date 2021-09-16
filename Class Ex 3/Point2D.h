@@ -4,14 +4,25 @@
 class Point2D
 {
 private:
-	int mX{ 0 };
-	int mY{ 0 };
-	int Distance;
+	int mX;
+	int mY;
+	double Distance;
 	
+public:
+	// 持失切
+	Point2D()
+	{
+		mX = mY = Distance = 0;
+		std::cout << "持失切" << std::endl;
+	}
+	~Point2D()
+	{
+		std::cout << "社瑚切" << std::endl;
+	}
 
 public:
 	void SetCoordinate(int x, int y);
 	void PrintResult();
-	int CalDistance(int x, int y);
+	double CalDistance(int x, int y);
 };
 

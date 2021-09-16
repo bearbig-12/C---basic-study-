@@ -7,7 +7,7 @@ void Point2D::SetCoordinate(int x, int y)
 	this->mY = y;
 }
 
-int Point2D::CalDistance(int x, int y)
+double Point2D::CalDistance(int x, int y)
 {
 	int xDistance = mX - x;
 	int yDistance = mY - y;

@@ -1,5 +1,3 @@
-﻿  Point2D.cpp
-D:\Git hub\GameCanvus C++\C---basic-study-\Class Ex 3\Point2D.cpp(15,17): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  main.cpp
-  코드를 생성하고 있습니다...
+﻿  main.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\Class Ex 3\Point2D.h(15,22): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Class Ex 3.vcxproj -> D:\Git hub\GameCanvus C++\C---basic-study-\Class\Debug\Class Ex 3.exe

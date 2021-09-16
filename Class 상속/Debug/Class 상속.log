@@ -1,0 +1,16 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(519,5): warning MSB8028: 중간 디렉터리(Debug\)에 다른 프로젝트(Class Ex 4 상속.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  Quest.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(25,40): error C2668: 'Quest::Quest': 오버로드된 함수에 대한 호출이 모호합니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(25,2): message : 'Quest::Quest(int,int)'일 수 있습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(21,2): message : 또는       'Quest::Quest(void)'
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(26,1): message : 인수 목록 '()'을(를) 일치시키는 동안
+  main.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(25,40): error C2668: 'Quest::Quest': 오버로드된 함수에 대한 호출이 모호합니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(25,2): message : 'Quest::Quest(int,int)'일 수 있습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(21,2): message : 또는       'Quest::Quest(void)'
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\Quest.h(26,1): message : 인수 목록 '()'을(를) 일치시키는 동안
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\main.cpp(7,11): error C2512: 'Quest': 사용할 수 있는 적절한 기본 생성자가 없습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\main.cpp(7,11): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\main.cpp(8,11): error C2512: 'Quest': 사용할 수 있는 적절한 기본 생성자가 없습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class 상속\main.cpp(8,11): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+  코드를 생성하고 있습니다...
