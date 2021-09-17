@@ -1,24 +1,16 @@
 #include "DynamicStack.h"
 #include <iostream>
 
-void Stack::PrintInformation()
-{
-	std::cout << "-----Welcome to Stack Function-----" << std::endl;
-	std::cout << "-----------------------------------" << std::endl;
-	std::cout << "[1] - PUSH " << std::endl;
-	std::cout << "[2] - POP " << std::endl;
-	std::cout << "[3] - STOP " << std::endl;
-	std::cout << "-----------------------------------" << std::endl;
-
-}
-
 
 
 void Stack::UserInput(Stack& stack)
 {
 	int type{ 0 };
-	while (1)
+
+
+	while (true)
 	{
+		Stack::Print(stack);
 
 		std::cout << std::endl;
 		std::cout << " > ";
@@ -29,12 +21,12 @@ void Stack::UserInput(Stack& stack)
 			std::cout << " Push value : ";
 			std::cin >> value;
 			Push(stack, value);
-			break;
+			
 		}
 		else if (type == mPOP)
 		{
 			Pop(stack);
-			break;
+			
 		}
 		else if (type == mSTOP)
 		{
@@ -44,21 +36,10 @@ void Stack::UserInput(Stack& stack)
 		else
 		{
 			std::cout << "Thas's not invalid type of number," << " please read information carfully" << std::endl;
-			break;
+			
 		}
 	}
 }
-
-//void Stack::Initialize(Stack& stack)
-//{
-//	stack.mCount = 0;
-//	stack.mTop = nullptr;
-//}
-
-//void Stack::Release(Stack& stack)
-//{
-//	Element* element = stack.mTop;
-//}
 
 void Stack::Push(Stack& stack, int value)
 {
@@ -88,5 +69,11 @@ void Stack::Pop(Stack& stack)
 
 void Stack::Print(const Stack& stack)
 {
-
+	Element* element = stack.mTop;
+	while (element != nullptr)
+	{
+		std::cout << element->mValue << std::endl;
+		element = element->mpNext;
+		
+	}
 }

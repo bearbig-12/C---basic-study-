@@ -34,22 +34,20 @@ public:
 	}
 	~Stack()
 	{
-		
+		Element* element = mTop;
+		Element* pNext{};
+		while (element != nullptr)
+		{
+			pNext = element->mpNext;
+			delete element;
+
+			element = pNext;
+		}
+		mTop = nullptr;
 	}
 public:
-	void PrintInformation();
+	
 	void UserInput(Stack& stack);
-
-	void Initialize(Stack& stack)
-	{
-		stack.mCount = 0;
-		stack.mTop = nullptr;
-	}
-
-	void Release(Stack& stack)
-	{
-		Element* element = stack.mTop;
-	}
 	void Push(Stack& stack, int value);
 	void Pop(Stack& stack);
 	void Print(const Stack& stack);
