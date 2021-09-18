@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DynamicQueue.h" />
     <ClInclude Include="DynamicStack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DynamicQueue.cpp" />
     <ClCompile Include="DynamicStack.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
