@@ -87,7 +87,7 @@ bool SingleList::Delete(SingleList& list, std::string name)
     if (list.mpHead == element)
     {
         //previous == nullptr
-        list.mpHead == element->mpNext;
+        list.mpHead = element->mpNext;
     }
 
     else if (list.mpTail == element)
