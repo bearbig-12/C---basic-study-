@@ -1,0 +1,4 @@
+﻿  복사 생성자.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\Class operator 추가상식\복사 생성자.cpp(55,1): error C2084: 'DogHouse::DogHouse(void)' 함수에 이미 본문이 있습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class operator 추가상식\복사 생성자.cpp(32): message : '{ctor}'의 이전 정의를 참조하십시오.
+D:\Git hub\GameCanvus C++\C---basic-study-\Class operator 추가상식\복사 생성자.cpp(59,1): error C2600: 'DogHouse::~DogHouse': 컴파일러 생성 특수 멤버 함수를 정의할 수 없습니다. 먼저 클래스에 선언해야 합니다.

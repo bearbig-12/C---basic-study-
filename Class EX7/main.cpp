@@ -53,8 +53,8 @@ int MyClass::sCount2{ 0 };
 int main()
 {
 
-	/*String s1{ "Hello" };
-	s1.Print();*/
+	String s1{ "Hello" };
+	s1.Print();
 
 
 	/*const MyClass c1;
@@ -63,15 +63,15 @@ int main()
 
 	//c2.mValue1 = 3; 상수 객체의 멤버 함수는 변경을 할 수 없다.
 	
-	MyClass c1;
-	MyClass c2;
-	{
-		MyClass c3;
-		std::cout << MyClass::sCount << std::endl;
-	}
+	//MyClass c1;
+	//MyClass c2;
+	//{
+	//	MyClass c3;
+	//	std::cout << MyClass::sCount << std::endl;
+	//}
 
-	//std::cout << c1.mValue;
-	MyClass::Function();
+	////std::cout << c1.mValue;
+	//MyClass::Function();
 
 
 }
