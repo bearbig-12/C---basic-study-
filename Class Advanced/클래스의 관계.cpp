@@ -95,9 +95,11 @@ class 파생클래스 : [virtual] [접근제한자] 기반클래스, 기반클래스2
 class Animal
 {
 private:
-	int mAge;
+	int mAge;		// 클래스 내부
 public:
-	int mWeight;
+	int mWeight;	// 클래스 내부, 외부, 파생
+protected:
+	int mValue;		// 클래스 내부, 파생
 
 };
 
