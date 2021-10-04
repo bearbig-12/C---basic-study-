@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "class의 상속과 파생",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "class 상속과 파생 2", "..\class 1\class 1.vcxproj", "{1CB4236F-0FEA-4897-8F28-EEFF5D7DD8D2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "class 게임 클래스 파생", "..\Class 게임 클래스 파생\Class 게임 클래스 파생.vcxproj", "{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClassList(Stack and Queue)", "..\ClassList(Stack and Queue)\ClassList(Stack and Queue).vcxproj", "{E81586B2-568B-445B-BFA9-522C664E2734}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +45,22 @@ Global
 		{1CB4236F-0FEA-4897-8F28-EEFF5D7DD8D2}.Release|x64.Build.0 = Release|x64
 		{1CB4236F-0FEA-4897-8F28-EEFF5D7DD8D2}.Release|x86.ActiveCfg = Release|Win32
 		{1CB4236F-0FEA-4897-8F28-EEFF5D7DD8D2}.Release|x86.Build.0 = Release|Win32
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Debug|x64.ActiveCfg = Debug|x64
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Debug|x64.Build.0 = Debug|x64
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Debug|x86.ActiveCfg = Debug|Win32
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Debug|x86.Build.0 = Debug|Win32
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Release|x64.ActiveCfg = Release|x64
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Release|x64.Build.0 = Release|x64
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Release|x86.ActiveCfg = Release|Win32
+		{7BAB8C4D-7391-4CCF-AFCD-94F28534160B}.Release|x86.Build.0 = Release|Win32
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Debug|x64.ActiveCfg = Debug|x64
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Debug|x64.Build.0 = Debug|x64
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Debug|x86.ActiveCfg = Debug|Win32
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Debug|x86.Build.0 = Debug|Win32
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Release|x64.ActiveCfg = Release|x64
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Release|x64.Build.0 = Release|x64
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Release|x86.ActiveCfg = Release|Win32
+		{E81586B2-568B-445B-BFA9-522C664E2734}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

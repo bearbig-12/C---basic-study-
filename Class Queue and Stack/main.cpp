@@ -67,10 +67,10 @@ int main()
 {
 
 	PrintInformation();
-	DynamicQueue queue;
+	/*DynamicQueue queue;
 
-	UserInput(queue);
-	//Stack st1;
+	UserInput(queue);*/
+	Stack st1;
 
-	//st1.UserInput(st1);
+	st1.UserInput(st1);
 }
