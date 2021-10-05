@@ -116,3 +116,82 @@ class Cat : Animal
 public:
 	void Meow();
 };
+
+
+// Type Casting (타입 변환)
+
+// 상향 변환 Up Cast
+//
+//		자식 -> 부모
+//		안전, 암시적
+//		Animal* p = new Dog;
+
+//	하향 변환 Down Cast
+//		
+//		부모 -> 자식
+//		확인, 런타임 체크
+//		((Warrior*)pHero)->DoubleSwing();
+
+static_cast<new_type> (expression)		// expression 연산자를 포함한 문장
+		// 컴파일 타임 - 해당 변수의 타입
+		// 암시적변환 동일
+		// int x = 10;
+		// float y = static_cast<float>(x);
+
+dynamic_cast <new_type> (expression)
+	// 런타임 체크
+
+
+
+const_cast<new_type> (expression)
+
+void Print(char* text)
+{
+
+}
+
+int main()
+{
+	const char myString[] = "this is test";
+	Print( const_cast<char*>(myString));
+}
+
+
+
+
+
+	추상 클래스(Abstract class)
+	//		순수 가상 함수를 하나라도 가진 클래스
+	//
+	//		pure virutal function
+	//			약속으로만 존재하고 정의(본체)가 없다.
+	//			파생된 클래스들이 무조건 override 해야만 함
+	//	
+	//			virtual void function() = 0;
+	// 
+	//		인스턴스를 만들 수 없음
+	//		기반 클래스로만 사용 가능
+	//		파생 클래스에서는 모든 순수가상함수를 오버라이딩 해야함
+
+	인터페이스(Interface)
+
+
+
+
+	// 함수 포인터
+
+	//		정적 멤버 함수 = 전역 함수
+
+	//		선언 ret-type (*) (param - list)
+	//		예제 using ptr = int (*) (int, float);
+	//		호출 ptr p;
+	//				 p(3, 1.0f);
+
+
+	//		비정적 멤버 함수
+
+	//		선언 ret-type (class-name::*)(para-list)
+	//		예제 using ptr = (Myclass::*)(int);
+	// 
+	//		호출 ptr p;
+	//				 (instance.*p)(3);

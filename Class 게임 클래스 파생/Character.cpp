@@ -15,3 +15,8 @@ void Character::Attack() const
 {
 	std::cout << "\tBasic Attack" << std::endl;
 }
+
+void Character::Move() const
+{
+	std::cout << "\tBasic Move" << std::endl;
+}

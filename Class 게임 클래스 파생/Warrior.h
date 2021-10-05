@@ -8,6 +8,8 @@ public:
 
 public:
 	void Attack() const override;
-	void Defense() override;
+	void DoubleSwing() const;
+	//void Defense() override;
+	void Move() const override;
 };
 
