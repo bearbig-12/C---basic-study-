@@ -195,3 +195,16 @@ int main()
 	// 
 	//		호출 ptr p;
 	//				 (instance.*p)(3);
+
+
+//	Template
+
+//		주의사항
+//			특수화된 만큼 코드가 추가
+//			템플릿의 선언과 정의는 같은 파일에 존재!!!
+
+//		Generic Programming
+
+//		일반화(Generalization)
+//		특수화(Specialization)
+
