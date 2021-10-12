@@ -149,7 +149,8 @@
 //
 //		}
 
-
+//	data()
+//		data는 모든 원소를 포인터로 가져옴
 
 // ---- 중요 ----
 // 람다식(Lambda Expression)
@@ -157,3 +158,27 @@
 
 //		[] (int a) {};
 //		[] (int x, int y) - > { return x; }
+
+
+//	std::array
+//		
+//		고정 크기의 순차 컨테이너
+//		배열과 동일 - STL 지원, 객체화
+//			순차 컨테이너
+//			Ramdom Access
+//			Fixed
+
+
+//	std::vector
+
+//		동적 크기의 순차 컨테이너
+//			순차 컨테이너
+//			Random Access - 가장 마지막에 추가/제거가 효율적
+//			Dynamic
+
+
+//	std::forward_list
+//		
+//		동적 크기의 순차 컨테이너
+//		순차적
+//		Sequential Access (Single Linked List)
