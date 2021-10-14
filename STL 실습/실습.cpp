@@ -85,24 +85,24 @@ void Above_Average(std::vector<Student>& v)
 
 }
 
-int main()
-{
-    Student s1{ 1,"Kim",80 };
-    Student s2{ 2,"Lee",20 };
-    Student s3{ 3,"Park",50 };
-    Student s4{ 4,"Choi",30 };
-    
-    std::vector<Student> v{s1, s2, s3};
-    
-    Add(s4, v, 1);
-  
-
-    Print(v);
-
-    //Erase(3, v);
-
-    Total_Score(v);
-    Average(v);
-    Above_Average(v);
-    
-}
+//int main()
+//{
+//    Student s1{ 1,"Kim",80 };
+//    Student s2{ 2,"Lee",20 };
+//    Student s3{ 3,"Park",50 };
+//    Student s4{ 4,"Choi",30 };
+//    
+//    std::vector<Student> v{s1, s2, s3};
+//    
+//    Add(s4, v, 1);
+//  
+//
+//    Print(v);
+//
+//    //Erase(3, v);
+//
+//    Total_Score(v);
+//    Average(v);
+//    Above_Average(v);
+//    
+//}
