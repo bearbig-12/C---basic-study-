@@ -182,3 +182,156 @@
 //		동적 크기의 순차 컨테이너
 //		순차적
 //		Sequential Access (Single Linked List)
+
+
+//	std::deque
+//		
+//		동적 크기의 순차 컨테이너
+//		순차적
+//	
+
+
+//	std::stack
+
+
+//	std::queue
+
+//	std::priority_queue
+
+
+//	std::set
+//
+//		특정 순서에 따라 고유한 원소를 저장
+//		(원소를 추가하면 자동적으로 정렬)
+//			연관적(associative)
+//			unique key
+//			순서집합(ordered set)
+//			Dynamic
+
+
+
+//---------------------------------------------------------
+
+//		std::vector
+//
+//			배열 접근
+//			추가/삭제 뒤에서만 일어날 경우
+
+//		std::list
+//
+//			중간에서 삭제가 일어나는경우 (ex: 탄막게임에서 총알을 담을 컨테이너로 적합)
+
+//		std::map
+
+//			<key, value>
+//			많은 데이터에 대한 검색이 빨라요
+
+
+
+
+//		C++11
+//----------------------------------------------------
+
+//			nullptr
+//			auto
+//			uniform initialization
+//			range-base for
+//			Lambda Expression
+//				Anonymous Function
+//
+//				[=] () mutable throw() -> int
+//				{
+//					return x;
+//				}
+
+//			[] : 캡쳐절
+//				[] : 외부 변수 사용 불가
+//				[=] : Call by Value;
+//				[&] : Call by Reference
+//				() : 매개변수 목록
+//				mutable : 무시
+//				throw() : 무시
+// 
+//				-> int : 반환타입
+// 
+//				auto expr = [](int a, int b)			//[] 캡처절 해당 블록에 있는 변수를 캡처해줌, 외부 변수 사용 불가 // [=] : Call by Value // [&] : Call by Reference
+//				{
+//
+//				};
+//
+//				int a, b;
+//				auto expr1 = [&](int x, int y)
+//				{
+//					a = x;
+//					b = y;
+//				};
+//				[](int a) -> float		// 반환타입 float
+//				{
+//					return 1.0f;
+//				};
+
+//			우측값 참조
+//
+//				void funtionforRef(int&& a)
+//				{
+//
+//				}
+//				int main()
+//				{
+//						int x;
+//						funtionforRef(x);	// 우측값을 참조하기에 불가
+//						funtionforRef(1);	// 우측값에 대한 참조가 불가능 해짐 (리터럴) void funtionforRef(int&& a) 이경우는 우측값 참조를 쓰기 때문에 가능
+// 
+//				}
+
+//				우측값 참조를 위한 std::move() 함수 즉 a의 소유권을 temp에 양도하는 용도 // 내부에서 일어나는 깊은 복사의 과정이 사라짐
+// 
+// 
+				//	template<typename T>
+				//	void Swap(T&& a, T&& B)	// 우측값 참조를 위한 &&
+				//	{
+				//		T temp;
+				//		temp = a;
+				//		a = b;
+				//		b = temp;
+				//	}
+				//	template<typename T>
+				//	void Swap1(T& a, T& B)	// 우측값 참조를 위한 std::move() 함수 즉 a의 소유권을 temp에 양도하는 용도 // 내부에서 일어나는 깊은 복사의 과정이 사라짐
+				//	{
+				//		T temp;
+				//		temp = std::move(a);
+				//		a = std::move(b);
+				//		b = std::move(temp);
+				//
+				//		//temp = a;
+				//		// 1. temp 해제
+				//		// 2. a의 복사 무명객체
+				//		// 3. 무명객체의 이름이 temp
+				//
+				//		// int temp = std::move(a);
+				//		// 3
+				//	}
+				//	void funtionforRef(int&& a)
+				//	{
+				//
+				//	}
+				//	template<typename T>
+				//	void TemplateFunction(T&& A)
+				//	{
+				//		funtionforRef(std::forward<T>(A));		// A가 x+x가 넘어가는게 아닌 2가 넘어가기 때문에 전달할때 의미 그대로 x+x를 넘겨줘야 하기에 
+				//	}
+				//
+				//	int main()
+				//	{
+				//		int x{ 1 };
+				//		//funtionforRef(x);
+				//		funtionforRef(1);	// 우측값에 대한 참조가 불가능 해짐 (리터럴) void funtionforRef(int&& a) 이경우는 우측값 참조를 쓰기 때문에 가능
+				//		funtionforRef(x + x);
+				//		TemplateFunction(x + x);
+				//	}
+
+//			constexpr
+//				const + expression
+
+//				const										constexpr
+//				컴파일/런타임에결정							컴파일

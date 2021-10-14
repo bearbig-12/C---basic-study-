@@ -1,0 +1,4 @@
+﻿  실습.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\STL 실습\실습.cpp(36,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+D:\Git hub\GameCanvus C++\C---basic-study-\STL 실습\실습.cpp(76,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  STL 실습.vcxproj -> D:\Git hub\GameCanvus C++\C---basic-study-\C++ STL Library\Debug\STL 실습.exe
