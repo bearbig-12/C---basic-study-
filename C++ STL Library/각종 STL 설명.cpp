@@ -335,3 +335,114 @@
 
 //				const										constexpr
 //				컴파일/런타임에결정							컴파일
+
+
+
+//			Exception (예외)
+
+//------------C++ 클래스 변화-----------------
+
+//		기본 이동 생성자 / 복사 생성자
+//		MyClass(const MyClass&)					복사 생성자
+//		MyClass& operator=(const MyClass&)		복사 대입 연산자
+
+//		MyClass(MyClass&&)						이동 생성자 (우측값 참조)
+//		MyClass& operatr=(MyClass&&)			이동 대입 연산자
+
+
+//		클래스 내부에서 멤버 초기화
+// 
+//		class	MyClass
+//		{
+//			int mHp{0};
+//		public:
+//			MyClass() :mHp{1} {};
+//		};
+//
+//		위와 같은 경우 생성자의 초기화가 우선이다.
+// 
+
+//		Override
+// 
+//		부모에서 virtual 자식에서 override
+// 
+//		class Base
+//		{
+//		public:
+//			virtual void func1() const {}
+//			void func2() {}
+//		};
+
+//		class Derived : public Base
+//		{
+//		public:
+//			void func1() {}	// override x - 위에 virtual 함수에 const가 붙어 있기 때문에 같은 함수가 아님 void func1() {} const  이렇게 해주면 가능
+//			void func2()	// override x
+//		};
+
+//		final
+//
+//		클래스나 함수에 뒤에 final을 붙일시 상속이 불가능 하게 막아버린다
+//		class MyClass final
+//		virtual void func1() const final {}
+
+//		=default, =delete
+//
+//		class MyClass
+//		{
+//		public:
+//			MyClass(const MyClass&) = default; - 복사 생성자를 기본생성자로 사용하겠다. / default - 기본 생성자 지정자
+//			MyClass(MyClass&&) = delete;	   -  이 생성자를 지운다.
+//		};
+
+//		enum class
+//
+//			이름이 전역, 중복 위험성 높음
+//			기본 4 바이트 정수 - 공간 낭비
+//			정수 연산으로 집합의 범위를 벗어나는 위험
+
+//			enum class Dog : char
+//			{
+//				white,
+//				black
+//			};
+
+//			enum class Cat
+//			{
+//				white,
+//				black
+//			};
+
+//		반환 타입 접미사 
+//	
+//		auto function-name ( argument-list ) -> return-type
+
+//		Raw String literal
+//
+//		std::cout << R"(		)" << std::endl;
+
+//		Variadic
+//
+//		void function(int count, ...)
+
+
+//		Variadic Template
+//
+//		template<class T, class... Types>
+//		T* Make(Types&& ... args)
+//		{
+//			return new T(std::forward<Types>(args)...);
+//		}
+
+//		Warrior* Make()
+//		{
+//		}
+
+//		Archer* Make(int bow)
+//		{
+//		}
+
+//		Wizard* Make(float staff, float orb)
+//		{
+//		}
+

@@ -39,6 +39,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "constexpr", "..\constexpr\c
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "우측값 참조", "..\우측값 참조\우측값 참조.vcxproj", "{D460734A-7268-436C-8E0F-867F9061BE81}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "escape 시퀀스", "..\escape 시퀀스\escape 시퀀스.vcxproj", "{F90862D0-F9C1-4469-A84C-6F0125D1C120}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smart pointer", "..\smart pointer\smart pointer.vcxproj", "{37136873-A277-47EA-A4CF-6194ED0F115E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -191,6 +195,22 @@ Global
 		{D460734A-7268-436C-8E0F-867F9061BE81}.Release|x64.Build.0 = Release|x64
 		{D460734A-7268-436C-8E0F-867F9061BE81}.Release|x86.ActiveCfg = Release|Win32
 		{D460734A-7268-436C-8E0F-867F9061BE81}.Release|x86.Build.0 = Release|Win32
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Debug|x64.ActiveCfg = Debug|x64
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Debug|x64.Build.0 = Debug|x64
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Debug|x86.ActiveCfg = Debug|Win32
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Debug|x86.Build.0 = Debug|Win32
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Release|x64.ActiveCfg = Release|x64
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Release|x64.Build.0 = Release|x64
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Release|x86.ActiveCfg = Release|Win32
+		{F90862D0-F9C1-4469-A84C-6F0125D1C120}.Release|x86.Build.0 = Release|Win32
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Debug|x64.ActiveCfg = Debug|x64
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Debug|x64.Build.0 = Debug|x64
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Debug|x86.ActiveCfg = Debug|Win32
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Debug|x86.Build.0 = Debug|Win32
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x64.ActiveCfg = Release|x64
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x64.Build.0 = Release|x64
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x86.ActiveCfg = Release|Win32
+		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

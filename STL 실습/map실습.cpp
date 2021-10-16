@@ -39,7 +39,8 @@ enum Type
     PRINTALL = 3,
     AVERAndTOTAL = 4,
     AboveAver = 5,
-    Stop = 6
+    Stop = 6,
+    DELETEALL = 7
 };
 
 
@@ -48,6 +49,7 @@ void Delete(std::map<int, Student>& m, int s_number);
 void PrintAll(const std::map<int, Student>& m);
 int AverTotal(std::map<int, Student>& m);
 void Above_Aver(std::map<int, Student>& m);
+void DeleteAll(std::map<int, Student>& m);
 
 void PrintInformation()
 {
@@ -59,6 +61,8 @@ void PrintInformation()
     std::cout << "[4] - Æò±Õ ¹× ÃÑÁ¡ Ãâ·Â " << std::endl;
     std::cout << "[5] - Æò±Õ ÀÌ»ó " << std::endl;
     std::cout << "[6] - ¸ØÃç! " << std::endl;
+    std::cout << "[7] - ´Ù Áö¿ì±â " << std::endl;
+
     std::cout << "-----------------------------------" << std::endl;
 
 }
@@ -134,6 +138,11 @@ void UserInput(std::map<int, Student>& student)
             std::cout << "Stop the function" << std::endl;
             break;
         }
+        else if (type == DELETEALL)
+        {
+            std::cout << "ÀüÃ¼ »èÁ¦" << std::endl;
+            DeleteAll(student);
+        }
         else
         {
             std::cout << "Thas's not invalid type of number," << " please read information carfully" << std::endl;
@@ -154,6 +163,10 @@ void Delete(std::map<int, Student>& m, int s_number)
 }
 void PrintAll(const std::map<int, Student>& m)
 {
+    if (m.empty())
+    {
+        std::cout << "ºó ÆÄÀÏ ÀÔ´Ï´Ù." << std::endl;
+    }
     for (auto pair : m)
     {
         std::cout << pair.first << " : " << pair.second.mName << " , " << pair.second.mScore << std::endl;
@@ -184,6 +197,10 @@ void Above_Aver(std::map<int, Student>& m)
             std::cout << "Æò±Õ ÀÌ»ó : " << pair.first << " : " << pair.second.mName << " , " << pair.second.mScore << std::endl;
         }
     }
+}
+void DeleteAll(std::map<int, Student>& m)
+{
+    m.clear();
 }
 
 
