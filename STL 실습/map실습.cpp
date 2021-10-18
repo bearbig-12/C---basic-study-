@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
-
+#include <numeric>
+#include <algorithm>
 class Student
 {
 public:
@@ -47,7 +48,7 @@ enum Type
 void Add(int s_number, std::string s_name, int s_score, std::map<int, Student>& m);
 void Delete(std::map<int, Student>& m, int s_number);
 void PrintAll(const std::map<int, Student>& m);
-int AverTotal(std::map<int, Student>& m);
+std::pair<int, int>  AverTotal(std::map<int, Student>& m);
 void Above_Aver(std::map<int, Student>& m);
 void DeleteAll(std::map<int, Student>& m);
 
@@ -172,31 +173,43 @@ void PrintAll(const std::map<int, Student>& m)
         std::cout << pair.first << " : " << pair.second.mName << " , " << pair.second.mScore << std::endl;
     }
 }
-int AverTotal(std::map<int, Student>& m)
+std::pair<int, int> AverTotal(std::map<int, Student>& m)
 {
     int Average = 0;
-    int Total = 0;
+    int Total = std::accumulate(m.begin(), m.end(), 0, [](int accum, auto& pair)
+                                                         {return accum += pair.second.mScore; }
+                                                         );
 
-    for (auto pair : m)
+    /*for (auto pair : m)
     {
         Total += pair.second.mScore;
-    }
+    }*/
 
     Average = Total / m.size();
     std::cout << " 평균 : " << Average << std::endl;
     std::cout << " 토탈 : " << Total << std::endl;
-    return Average;         // 우리는 평균이상인 사람들을 구해야하기 때문에 토탈은 반환 필요가 읎음
+    return std::pair<int, int> (Total, Average);         // 우리는 평균이상인 사람들을 구해야하기 때문에 토탈은 반환 필요가 읎음
 }
 void Above_Aver(std::map<int, Student>& m)
 {
-    int aver = AverTotal(m);
-    for (auto pair : m)
-    {
-        if (aver < pair.second.mScore)
-        {
-            std::cout << "평균 이상 : " << pair.first << " : " << pair.second.mName << " , " << pair.second.mScore << std::endl;
+    int aver = AverTotal(m).second;
+    int total = AverTotal(m).first;
+
+    std::for_each(m.begin(), m.end(), [&](auto& pair)
+        {  
+            if (aver <= pair.second.mScore)
+            std::cout << "평균 이상 : " << pair.first << " : " << pair.second.mName << " , " << pair.second.mScore << std::endl; 
         }
-    }
+    );
+
+
+    //for (auto pair : m)
+    //{
+    //    if (aver < pair.second.mScore)
+    //    {
+    //        std::cout << "평균 이상 : " << pair.first << " : " << pair.second.mName << " , " << pair.second.mScore << std::endl;
+    //    }
+    //}
 }
 void DeleteAll(std::map<int, Student>& m)
 {

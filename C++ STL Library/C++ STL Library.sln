@@ -41,7 +41,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "우측값 참조", "..\우�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "escape 시퀀스", "..\escape 시퀀스\escape 시퀀스.vcxproj", "{F90862D0-F9C1-4469-A84C-6F0125D1C120}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smart pointer", "..\smart pointer\smart pointer.vcxproj", "{37136873-A277-47EA-A4CF-6194ED0F115E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1 unique_ptr", "..\smart pointer\smart pointer.vcxproj", "{37136873-A277-47EA-A4CF-6194ED0F115E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2 shared_ptr", "..\shared_ptr\shared_ptr.vcxproj", "{3B05FDD5-D293-4E01-860F-E152313FB088}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3 weak_ptr", "..\3 weaked_ptr\3 weaked_ptr.vcxproj", "{A2553A51-44BA-4231-8BB0-1E2523F99346}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,6 +215,22 @@ Global
 		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x64.Build.0 = Release|x64
 		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x86.ActiveCfg = Release|Win32
 		{37136873-A277-47EA-A4CF-6194ED0F115E}.Release|x86.Build.0 = Release|Win32
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Debug|x64.ActiveCfg = Debug|x64
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Debug|x64.Build.0 = Debug|x64
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Debug|x86.ActiveCfg = Debug|Win32
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Debug|x86.Build.0 = Debug|Win32
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Release|x64.ActiveCfg = Release|x64
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Release|x64.Build.0 = Release|x64
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Release|x86.ActiveCfg = Release|Win32
+		{3B05FDD5-D293-4E01-860F-E152313FB088}.Release|x86.Build.0 = Release|Win32
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Debug|x64.ActiveCfg = Debug|x64
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Debug|x64.Build.0 = Debug|x64
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Debug|x86.ActiveCfg = Debug|Win32
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Debug|x86.Build.0 = Debug|Win32
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Release|x64.ActiveCfg = Release|x64
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Release|x64.Build.0 = Release|x64
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Release|x86.ActiveCfg = Release|Win32
+		{A2553A51-44BA-4231-8BB0-1E2523F99346}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

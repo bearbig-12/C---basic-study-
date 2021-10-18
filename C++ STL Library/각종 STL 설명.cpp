@@ -286,49 +286,50 @@
 
 //				우측값 참조를 위한 std::move() 함수 즉 a의 소유권을 temp에 양도하는 용도 // 내부에서 일어나는 깊은 복사의 과정이 사라짐
 // 
-// 
-				//	template<typename T>
-				//	void Swap(T&& a, T&& B)	// 우측값 참조를 위한 &&
-				//	{
-				//		T temp;
-				//		temp = a;
-				//		a = b;
-				//		b = temp;
-				//	}
-				//	template<typename T>
-				//	void Swap1(T& a, T& B)	// 우측값 참조를 위한 std::move() 함수 즉 a의 소유권을 temp에 양도하는 용도 // 내부에서 일어나는 깊은 복사의 과정이 사라짐
-				//	{
-				//		T temp;
-				//		temp = std::move(a);
-				//		a = std::move(b);
-				//		b = std::move(temp);
-				//
-				//		//temp = a;
-				//		// 1. temp 해제
-				//		// 2. a의 복사 무명객체
-				//		// 3. 무명객체의 이름이 temp
-				//
-				//		// int temp = std::move(a);
-				//		// 3
-				//	}
-				//	void funtionforRef(int&& a)
-				//	{
-				//
-				//	}
-				//	template<typename T>
-				//	void TemplateFunction(T&& A)
-				//	{
-				//		funtionforRef(std::forward<T>(A));		// A가 x+x가 넘어가는게 아닌 2가 넘어가기 때문에 전달할때 의미 그대로 x+x를 넘겨줘야 하기에 
-				//	}
-				//
-				//	int main()
-				//	{
-				//		int x{ 1 };
-				//		//funtionforRef(x);
-				//		funtionforRef(1);	// 우측값에 대한 참조가 불가능 해짐 (리터럴) void funtionforRef(int&& a) 이경우는 우측값 참조를 쓰기 때문에 가능
-				//		funtionforRef(x + x);
-				//		TemplateFunction(x + x);
-				//	}
+
+/*					template<typename T>
+					void Swap(T&& a, T&& B)	// 우측값 참조를 위한 &&
+					{
+						T temp;
+						temp = a;
+						a = b;
+						b = temp;
+					}
+					template<typename T>
+					void Swap1(T& a, T& B)	// 우측값 참조를 위한 std::move() 함수 즉 a의 소유권을 temp에 양도하는 용도 // 내부에서 일어나는 깊은 복사의 과정이 사라짐
+					{
+						T temp;
+						temp = std::move(a);
+						a = std::move(b);
+						b = std::move(temp);
+				
+						//temp = a;
+						// 1. temp 해제
+						// 2. a의 복사 무명객체
+						// 3. 무명객체의 이름이 temp
+				
+						// int temp = std::move(a);
+						// 3
+					}
+					void funtionforRef(int&& a)
+					{
+				
+					}
+					template<typename T>
+					void TemplateFunction(T&& A)
+					{
+						funtionforRef(std::forward<T>(A));		// A가 x+x가 넘어가는게 아닌 2가 넘어가기 때문에 전달할때 의미 그대로 x+x를 넘겨줘야 하기에 
+					}
+				
+					int main()
+					{
+						int x{ 1 };
+						//funtionforRef(x);
+						funtionforRef(1);	// 우측값에 대한 참조가 불가능 해짐 (리터럴) void funtionforRef(int&& a) 이경우는 우측값 참조를 쓰기 때문에 가능
+						funtionforRef(x + x);
+						TemplateFunction(x + x);
+					}
+*/
 
 //			constexpr
 //				const + expression
@@ -446,3 +447,85 @@
 //		{
 //		}
 
+
+//		-----스마트 포인터------
+// 
+//		소유권
+//			: 명시
+//		메모리 해제 시점
+//			: 안쓰면 알아서 해제
+//		장점
+//			*이 없어요
+//		단점
+//			<> 템플릿
+
+//		std::unique_ptr
+//			포인터를 지정하고 있는 객체를 소유
+//			복사 생성자 x, 복사 배정 x
+//			이동 생성자 o, 이동 배정 o
+//
+//			unique_ptr::reset()		포인터 해제, 초기화
+//			unique_ptr::get()		c스타일 포인터를 반환
+//			unique_ptr::release()
+	
+
+/*		class MyClass
+		{
+		public:
+			int mValue;
+		};
+		
+		int main()
+		{
+			//std::unique_ptr<MyClass> p{ new MyClass };
+			std::unique_ptr<MyClass> p{ std::make_unique<MyClass>() };
+		
+		
+			std::cout << p->mValue << std::endl;
+		
+			MyClass* pOld;
+			pOld = p.get();
+			//delete pOld // 스마트 포인터 쓸땐 딜리트 쓰지말기 제발
+		}
+*/
+
+
+
+//		std::shared_ptr
+
+//			객체를 소유 x, 참조 o
+//			reference count로 추적
+//			하나의 객체를 여러개가 공유해야 할 경우 사용
+
+/*			class Image
+			{
+
+			};
+
+			class Demon
+			{
+				std::shared_ptr<Image> mspImage;
+
+			public:
+				Demon(std::shared_ptr<Image> img) : mspImage{ img }
+				{
+
+				}
+			};
+
+			int main()
+			{
+				std::shared_ptr<Image> spImage{ std::make_shared<Image>() };
+
+				{
+					auto demon1 = std::make_shared<Demon>(spImage);
+					{
+						auto demon2 = std::make_shared<Demon>(spImage);
+						{
+							auto demon3 = std::make_shared<Demon>(spImage);
+
+						}
+					}
+				}
+			}
+*/
