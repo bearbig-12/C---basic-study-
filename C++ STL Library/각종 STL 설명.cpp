@@ -543,3 +543,28 @@
 
 //			멀티 태스킹 - 본체가 여러개	( 나루토 분신술 )
 //			멀티 스레드	- 본체가 1개지만 빨리 여러일을함 ( 블리치 순보 )
+
+
+
+//			Byte Order
+
+//			Big-Endian
+//			MSB(Most Significant Byte)
+//			순서대로
+
+//			Little-Endian
+//			LSB(Least Significat Byte)
+//			역으로 기록
+//			0x1				00 00 00 01		10 00 00 00
+//			0x1234			00 00 12 34		34 12 00 00
+//			0x12345678		12 34 56 78		78 56 34 12
+
+//			ostream::write(char* s, streamsize n);
+//			ostream::read(char* s, streamsize n);
+
+
+//			메타데이터(meta - data)
+
+//			length, string
+
+//
