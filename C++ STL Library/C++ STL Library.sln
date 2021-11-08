@@ -63,6 +63,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XML_PARSER", "..\XML_PARSER
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XML_PARSER2", "..\XML_PARSER2\XML_PARSER2.vcxproj", "{73E94466-7D61-4985-97F5-CCAB722E50EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XML_Rapid_Json", "..\XML_Rapid_Json\XML_Rapid_Json.vcxproj", "{777F3F75-346B-4850-AA1B-C57125B2CE73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -311,6 +313,14 @@ Global
 		{73E94466-7D61-4985-97F5-CCAB722E50EE}.Release|x64.Build.0 = Release|x64
 		{73E94466-7D61-4985-97F5-CCAB722E50EE}.Release|x86.ActiveCfg = Release|Win32
 		{73E94466-7D61-4985-97F5-CCAB722E50EE}.Release|x86.Build.0 = Release|Win32
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Debug|x64.ActiveCfg = Debug|x64
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Debug|x64.Build.0 = Debug|x64
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Debug|x86.ActiveCfg = Debug|Win32
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Debug|x86.Build.0 = Debug|Win32
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Release|x64.ActiveCfg = Release|x64
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Release|x64.Build.0 = Release|x64
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Release|x86.ActiveCfg = Release|Win32
+		{777F3F75-346B-4850-AA1B-C57125B2CE73}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
