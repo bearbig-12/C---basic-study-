@@ -565,6 +565,16 @@
 
 //			메타데이터(meta - data)
 
-//			length, string
-
+//			POD(Plain Old Data)
+//			struct Header
+//			{
+//				int value1;
+//				int value2;
+//			};
+// 
+//			Header header;
+// 
+//			
+//
+//
 //
