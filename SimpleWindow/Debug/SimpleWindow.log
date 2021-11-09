@@ -1,2 +1,3 @@
 ﻿  WinMain.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\SimpleWindow\WinMain.cpp(44,13): warning C4101: 'wc' :참조되지 않은 지역 변수입니다.
   SimpleWindow.vcxproj -> D:\Git hub\GameCanvus C++\C---basic-study-\SimpleWindow\Debug\SimpleWindow.exe
