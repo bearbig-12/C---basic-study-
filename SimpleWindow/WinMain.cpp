@@ -105,6 +105,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lpara
 {
 	switch (message)
 	{
+	/*case WM_LBUTTONDOWN:
+	{
+		HDC hdc = GetDC(hwnd);
+
+		Rectangle(hdc, 0, 0, 100, 100);
+
+		ReleaseDC(hwnd, hdc);
+		break;
+	}*/
+
 	case WM_KEYDOWN:
 	{
 		//char x = wparam;
@@ -114,6 +124,20 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lpara
 		OutputDebugString(oss2.str().c_str());
 		break;
 	}
+
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC hdc;
+		hdc = BeginPaint(hwnd, &ps);
+
+		Rectangle(hdc, 0, 0, 100, 100);
+
+		EndPaint(hwnd, &ps);
+
+
+	}
+		break;
 	/*case WM_LBUTTONDOWN:
 	{
 		int x = LOWORD(lparam);
