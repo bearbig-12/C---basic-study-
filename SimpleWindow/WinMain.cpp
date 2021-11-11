@@ -31,6 +31,10 @@
 
 #include <Windows.h>
 #include <sstream>
+#include <gdiplus.h>
+
+#pragma comment (lib, "Gdiplus.lib")
+
 
 const wchar_t gClassName[] = L"MyWindowClass";
 
@@ -43,7 +47,12 @@ int WINAPI WinMain(
 	_In_ int nShowCmd
 )
 {
-	MessageBox(nullptr, L"HelloWorld", L"SimpleWorld", MB_ICONEXCLAMATION | MB_OK);
+	//MessageBox(nullptr, L"HelloWorld", L"SimpleWorld", MB_ICONEXCLAMATION | MB_OK);
+
+	Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+	ULONG_PTR token;
+
+	GdiplusStartup(&token, &gdiplusStartupInput, nullptr);
 
 	// 1. 윈도우 클래스 등록
 	WNDCLASSEX wc;				// 구조체 - 매개변수로 넘겨줄때는 반드시 0으로 초기화 
@@ -65,6 +74,9 @@ int WINAPI WinMain(
 		return 0;
 	}
 
+	RECT wr = { 0,0,640,480 };
+	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, false);
+
 	// 2. 윈도우 생성							-1번의 클래스 지정
 	HWND hwnd = CreateWindowEx(
 		0,
@@ -72,7 +84,7 @@ int WINAPI WinMain(
 		L"HelloWindow",
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
-		640, 480,
+		wr.right - wr.left, wr.bottom - wr.top,
 		0,
 		0,
 		hInstance,
@@ -95,11 +107,65 @@ int WINAPI WinMain(
 	}
 
 
-
+	Gdiplus::GdiplusShutdown(token);
 	return static_cast<int>(msg.wParam);
 }
 
 // *. 윈도우 프로시져 함수 만들기 - callback
+
+void OnPaint(HWND hwnd)
+{
+	PAINTSTRUCT ps;
+	HDC hdc;
+	hdc = BeginPaint(hwnd, &ps);
+
+	//HPEN bluePen = CreatePen(PS_DOT, 1, RGB(0, 0, 255));	// 외부를 그리는게 펜
+	//HPEN oldPen = (HPEN)SelectObject(hdc, bluePen);
+
+	//HBRUSH hatchBrush = CreateHatchBrush(HS_CROSS, RGB(255,0,0));	// 내부를 채우는게 브러쉬
+	//HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, hatchBrush);
+
+
+
+	//Rectangle(hdc, 250, 250, 350, 350);
+
+	//SetPixel(hdc, 0, 0, RGB(0, 255, 0));
+	//SetPixel(hdc, 100, 100, RGB(0, 255, 0));
+	//
+	//MoveToEx(hdc, 0, 100, NULL);
+	//LineTo(hdc, 100, 100);
+
+	//Ellipse(hdc, 150, 150, 300, 200);
+
+	//DeleteObject(hatchBrush);
+	//SelectObject(hdc,oldBrush);
+
+
+	//DeleteObject(bluePen);
+	//SelectObject(hdc, oldPen);
+
+	Gdiplus:: Graphics graphics(hdc); // DC -> Graphics
+	//Gdiplus::Pen pen(Gdiplus::Color(255,0,0,255));				// HPEN-> PEN		a r g b
+
+	//graphics.DrawRectangle(&pen, 0, 0, 100, 100);
+
+	//pen.SetColor(Gdiplus::Color::HotPink);
+	//graphics.DrawLine(&pen, 0, 0, 100, 100);
+
+	//Gdiplus::SolidBrush brush(Gdiplus::Color::Black);
+	//Gdiplus::FontFamily family(L"맑은 고딕");
+	//Gdiplus::Font font(&family, 24, Gdiplus::FontStyle::FontStyleRegular,Gdiplus::UnitPixel);
+	//graphics.DrawString(L"Get on the MidnightTrain", -1, &font, { 0.0f,110.0f }, &brush);
+		
+	Gdiplus::Image image(L"isaac.png");
+	//graphics.DrawImage(&image, Gdiplus::RectF(
+	//	ps.rcPaint.left, 
+	//	ps.rcPaint.top,
+	//	ps.rcPaint.right - ps.rcPaint.left,
+	//	ps.rcPaint.bottom-ps.rcPaint.top));
+	graphics.DrawImage(&image, 0, 0, image.GetWidth(), image.GetHeight());
+	EndPaint(hwnd, &ps);
+}
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
@@ -126,17 +192,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lpara
 	}
 
 	case WM_PAINT:
-	{
-		PAINTSTRUCT ps;
-		HDC hdc;
-		hdc = BeginPaint(hwnd, &ps);
-
-		Rectangle(hdc, 0, 0, 100, 100);
-
-		EndPaint(hwnd, &ps);
-
-
-	}
+		OnPaint(hwnd);
 		break;
 	/*case WM_LBUTTONDOWN:
 	{
