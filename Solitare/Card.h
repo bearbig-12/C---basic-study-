@@ -22,22 +22,28 @@ namespace solitaire
 	{
 	private:
 		HWND mHwnd;
+		int mIndex;
 		Type mType;
 		bool mIsFront;
 		int mX;
 		int mY;
 
+		
 
 		std::unique_ptr<Gdiplus::Image> mBack;
 		std::unique_ptr<Gdiplus::Image> mFront;
 
 	public:
-		Card(HWND hwnd, Type type, int x, int y);
+		Card(HWND hwnd, int index, Type type, int x, int y);
 
 		bool CheckClicked(int cursorX, int cursorY);
 		void Flip(bool isFront);
 		void Draw(Gdiplus::Graphics& graphics);
 
 		void Invalidate();
+
+		Type GetType() { return mType; }
+		int GetIndex() { return mIndex; }
+		
 	};
 }

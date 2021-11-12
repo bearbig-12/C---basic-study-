@@ -44,12 +44,12 @@ int WINAPI WinMain(
 
 	//윈도우 만들기
 	RECT wr = { 0,0,1024,768 };
-	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
+	AdjustWindowRect(&wr, WS_OVERLAPPED | WS_SYSMENU, FALSE);
 	HWND hwnd = CreateWindowEx(
 		0,
 		gClassName,
 		L"Solitare Game",
-		WS_OVERLAPPEDWINDOW,
+		WS_OVERLAPPED | WS_SYSMENU,
 		CW_USEDEFAULT, CW_USEDEFAULT,
 		wr.right - wr.left, wr.bottom - wr.top,
 		0, 0,

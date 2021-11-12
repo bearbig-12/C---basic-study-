@@ -25,6 +25,8 @@ namespace solitaire
 
 		HWND mHwnd;
 		int mFlipCount;
+
+		Card* mpSelected;
 		
 	public:
 		void Initialize(HWND hwnd);
