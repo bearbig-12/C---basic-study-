@@ -27,6 +27,7 @@ int WINAPI WinMain(
 		D2DFramWork::ShowErrorMsg(wstr);
 	}
 
+	
 
 	return ret;
 }
