@@ -1,0 +1,7 @@
+﻿  Actor.cpp
+  D2DFramWork.cpp
+D:\Git hub\GameCanvus C++\C---basic-study-\ImageEx\D2DFramWork.cpp(5,9): warning C4068: 알 수 없는 pragma 'commnet'
+  ImageEx.cpp
+  WinMain.cpp
+  코드를 생성하고 있습니다...
+  ImageEx.vcxproj -> D:\Git hub\GameCanvus C++\C---basic-study-\ImageEx\Debug\ImageEx.exe

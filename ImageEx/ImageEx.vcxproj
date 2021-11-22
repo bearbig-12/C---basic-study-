@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="D2DFramWork.cpp" />
     <ClCompile Include="ImageEx.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="D2DFramWork.h" />
     <ClInclude Include="ImageEx.h" />
   </ItemGroup>

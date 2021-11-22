@@ -2,7 +2,7 @@
 #include <sstream>
 
 #pragma comment (lib, "d2d1.lib")
-
+#pragma commnet (lib, "WindowsCodecs.lib")
 
 HRESULT D2DFramWork::InitWindow(HINSTANCE hInstance, LPCWSTR title, UINT width, UINT height)
 {
@@ -56,9 +56,21 @@ HRESULT D2DFramWork::InitWindow(HINSTANCE hInstance, LPCWSTR title, UINT width, 
 
 HRESULT D2DFramWork::InitD2D()
 {
-	HRESULT hr = D2D1CreateFactory(
-		D2D1_FACTORY_TYPE_SINGLE_THREADED,
-		mspD2DFactory.GetAddressOf());
+	HRESULT hr;
+
+	hr = ::CoCreateInstance(
+		CLSID_WICImagingFactory,
+		nullptr,
+		CLSCTX_INPROC_SERVER,
+		IID_PPV_ARGS(mspWICFactory.GetAddressOf())
+	);
+	ThrowIfFailed(hr);
+
+	 hr = D2D1CreateFactory(
+		D2D1_FACTORY_TYPE_SINGLE_THREADED, mspD2DFactory.GetAddressOf()
+	 );
+	 ThrowIfFailed(hr);
+
 	if (FAILED(hr))
 	{
 		ShowErrorMsg(L"Failed to Create D2D Factory");
@@ -91,6 +103,7 @@ HRESULT D2DFramWork::CreateDeviceResources()
 HRESULT D2DFramWork::Initialize(HINSTANCE hInstance, LPCWSTR title, UINT width, UINT height)
 {
 	HRESULT hr;
+	CoInitialize(nullptr);
 	hr = InitWindow(hInstance,title, width,height);
 	ThrowIfFailed(hr);
 
@@ -105,6 +118,11 @@ HRESULT D2DFramWork::Initialize(HINSTANCE hInstance, LPCWSTR title, UINT width, 
 
 void D2DFramWork::Release()
 {
+	mspRenderTarget.Reset();
+	mspD2DFactory.Reset();
+	mspWICFactory.Reset();
+
+	CoUninitialize();// 코덱스를 사용할떄는 Coin 과 CoUn 필수
 }
 
 int D2DFramWork::GameLoop()

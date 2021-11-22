@@ -1,6 +1,7 @@
 #pragma once
 
 #include <d2d1.h>
+#include <wincodec.h>
 #include <wrl/client.h>
 #include <exception>
 #include <sstream>
@@ -50,6 +51,8 @@ private:
 
 protected:
 	HWND mHwnd{};
+
+	Microsoft::WRL::ComPtr<IWICImagingFactory> mspWICFactory{};
 	Microsoft::WRL::ComPtr<ID2D1Factory> mspD2DFactory{};
 	Microsoft::WRL::ComPtr<ID2D1HwndRenderTarget> mspRenderTarget{};
 
@@ -59,6 +62,13 @@ protected:
 
 	HRESULT InitD2D();
 	virtual HRESULT CreateDeviceResources();
+
+public:
+	HWND GetWindowHandle() { return mHwnd; }
+	IWICImagingFactory* GetWICFactory() { return mspWICFactory.Get(); }	// 반환 타입이 스마트 포인터가 아니기에 .Get() 사용
+	ID2D1Factory* GetD2DFactory() { return mspD2DFactory.Get(); }
+	ID2D1HwndRenderTarget* GetRenderTarget() { return mspRenderTarget.Get(); }
+
 
 public:
 	virtual HRESULT Initialize(HINSTANCE hInstance, 

@@ -3,8 +3,6 @@
 
 
 
-ImageEx myFramework;
-
 
 int WINAPI WinMain(
 	_In_ HINSTANCE hInstance,
@@ -16,10 +14,10 @@ int WINAPI WinMain(
 	int ret{ 0 };
 	try 
 	{
-		D2DFramWork myFrameWork;
-		if (SUCCEEDED(myFrameWork.Initialize(hInstance)))
+		ImageEx myFramework;
+		if (SUCCEEDED(myFramework.Initialize(hInstance)))
 		{
-			ret = myFrameWork.GameLoop();
+			ret = myFramework.GameLoop();
 		}
 		
 	}
