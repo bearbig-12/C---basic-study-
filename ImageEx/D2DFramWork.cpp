@@ -2,7 +2,6 @@
 #include <sstream>
 
 #pragma comment (lib, "d2d1.lib")
-#pragma commnet (lib, "WindowsCodecs.lib")
 
 HRESULT D2DFramWork::InitWindow(HINSTANCE hInstance, LPCWSTR title, UINT width, UINT height)
 {
@@ -58,13 +57,13 @@ HRESULT D2DFramWork::InitD2D()
 {
 	HRESULT hr;
 
-	hr = ::CoCreateInstance(
+	/*hr = ::CoCreateInstance(
 		CLSID_WICImagingFactory,
 		nullptr,
 		CLSCTX_INPROC_SERVER,
 		IID_PPV_ARGS(mspWICFactory.GetAddressOf())
 	);
-	ThrowIfFailed(hr);
+	ThrowIfFailed(hr);*/
 
 	 hr = D2D1CreateFactory(
 		D2D1_FACTORY_TYPE_SINGLE_THREADED, mspD2DFactory.GetAddressOf()
@@ -103,12 +102,19 @@ HRESULT D2DFramWork::CreateDeviceResources()
 HRESULT D2DFramWork::Initialize(HINSTANCE hInstance, LPCWSTR title, UINT width, UINT height)
 {
 	HRESULT hr;
-	CoInitialize(nullptr);
+	hr = CoInitialize(nullptr);
+	ThrowIfFailed(hr);
+
 	hr = InitWindow(hInstance,title, width,height);
 	ThrowIfFailed(hr);
 
 	hr = InitD2D();
 	ThrowIfFailed(hr);
+
+	hr = BitmapManager::Instance().Initialize(mspRenderTarget.Get());
+	ThrowIfFailed(hr, "Failed to Create BitmapManager");
+
+
 
 	ShowWindow(mHwnd, SW_SHOW);
 	UpdateWindow(mHwnd);
@@ -118,9 +124,9 @@ HRESULT D2DFramWork::Initialize(HINSTANCE hInstance, LPCWSTR title, UINT width, 
 
 void D2DFramWork::Release()
 {
+	BitmapManager::Instance().Release();
 	mspRenderTarget.Reset();
 	mspD2DFactory.Reset();
-	mspWICFactory.Reset();
 
 	CoUninitialize();// 코덱스를 사용할떄는 Coin 과 CoUn 필수
 }

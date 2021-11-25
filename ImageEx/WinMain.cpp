@@ -1,5 +1,5 @@
 ﻿#include <Windows.h>
-#include "ImageEx.h"
+#include "ActorExample.h"
 
 
 
@@ -14,7 +14,7 @@ int WINAPI WinMain(
 	int ret{ 0 };
 	try 
 	{
-		ImageEx myFramework;
+		ActorExample myFramework;
 		if (SUCCEEDED(myFramework.Initialize(hInstance)))
 		{
 			ret = myFramework.GameLoop();
