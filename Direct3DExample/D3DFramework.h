@@ -8,7 +8,7 @@
 #include <wrl/client.h>
 #include <d3d11.h>
 
-class D3DFramework
+class D3DFrameWork
 {
 private:
 	const std::wstring gClassName{ L"MyWindowClass" };
@@ -24,7 +24,7 @@ protected:
 	HWND mHwnd{};
 	HINSTANCE mInstance{};
 
-
+	
 
 	Microsoft::WRL::ComPtr<ID3D11Device>			mspDevice{};
 	Microsoft::WRL::ComPtr<ID3D11DeviceContext>		mspDeviceContext{};
@@ -34,7 +34,7 @@ protected:
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> mspRenderTargetView{};
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilView> mspDepthStencilView{};
 
-
+	
 private:
 	void InitWindow(HINSTANCE hInstance);
 	void InitD3D();
@@ -48,9 +48,9 @@ public:
 		int width = 800,
 		int height = 600
 	);
-	virtual void Destroy();
+	virtual void ReleaseD3D();
 	virtual void GameLoop();
-	virtual void Render() = 0;
+
 public:
 	LRESULT CALLBACK MessageHandle(HWND hwnd, UINT message,
 		WPARAM wparam, LPARAM lparam);
@@ -58,3 +58,4 @@ public:
 
 
 };
+

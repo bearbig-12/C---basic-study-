@@ -18,14 +18,19 @@
     <ClCompile Include="WinMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="D3DFramework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DrawTriangle.cpp">
+=======
+    <ClCompile Include="D3DFrameWork.cpp">
+>>>>>>> 1bcc16f5921a1098ffafa30392582ff2043fae5f
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="D3DFramework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,5 +45,10 @@
     <FxCompile Include="PixelShader.hlsl">
       <Filter>Resource Files</Filter>
     </FxCompile>
+=======
+    <ClInclude Include="D3DFrameWork.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+>>>>>>> 1bcc16f5921a1098ffafa30392582ff2043fae5f
   </ItemGroup>
 </Project>

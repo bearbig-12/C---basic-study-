@@ -1,7 +1,7 @@
-#include "D3DFramework.h"
+#include "D3DFrameWork.h"
 #pragma comment (lib, "d3d11.lib")
 
-void D3DFramework::Initialize(HINSTANCE hInstance, int width, int height)
+void D3DFrameWork::Initialize(HINSTANCE hInstance, int width, int height)
 {
 	mScreenWidth = width;
 	mScreenHeight = height;
@@ -9,7 +9,7 @@ void D3DFramework::Initialize(HINSTANCE hInstance, int width, int height)
 	InitWindow(hInstance);
 	InitD3D();
 }
-void D3DFramework::InitWindow(HINSTANCE hInstance)
+void D3DFrameWork::InitWindow(HINSTANCE hInstance)
 {
 	WNDCLASSEX wc;
 
@@ -75,7 +75,7 @@ void D3DFramework::InitWindow(HINSTANCE hInstance)
 
 }
 
-void D3DFramework::InitD3D()
+void D3DFrameWork::InitD3D()
 {
 	// Device 만들기
 	// SwapChain 만들기
@@ -118,7 +118,7 @@ void D3DFramework::InitD3D()
 
 }
 
-void D3DFramework::OnResize()
+void D3DFrameWork::OnResize()
 {
 	/////////////////////////////////////////
 
@@ -189,7 +189,7 @@ void D3DFramework::OnResize()
 
 }
 
-void D3DFramework::RenderFrame()
+void D3DFrameWork::RenderFrame()
 {
 	float clear_color[]{ 0.0f, 0.2f, 0.4f, 1.0f };
 	mspDeviceContext->ClearRenderTargetView(mspRenderTargetView.Get(), clear_color);
@@ -205,7 +205,7 @@ void D3DFramework::RenderFrame()
 
 
 
-void D3DFramework::Destroy()
+void D3DFrameWork::ReleaseD3D()
 {
 	mspSwapChain->SetFullscreenState(FALSE, nullptr);
 
@@ -225,7 +225,7 @@ void D3DFramework::Destroy()
 	UnregisterClass(gClassName.c_str(), mInstance);
 }
 
-void D3DFramework::GameLoop()
+void D3DFrameWork::GameLoop()
 {
 	MSG msg{};
 	while (true)
@@ -250,7 +250,7 @@ void D3DFramework::GameLoop()
 
 }
 
-LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
+LRESULT D3DFrameWork::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message)
 	{
@@ -356,11 +356,11 @@ LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 	return LRESULT();
 }
 
-LRESULT D3DFramework::WindowProc(HWND hwnd, UINT message,
+LRESULT D3DFrameWork::WindowProc(HWND hwnd, UINT message,
 	WPARAM wparam, LPARAM lparam)
 {
-	D3DFramework* pFramework = reinterpret_cast<D3DFramework*>(
+	D3DFrameWork* pFramework = reinterpret_cast<D3DFrameWork*>(
 		GetWindowLongPtr(hwnd, GWLP_USERDATA));
 
-	return pFramework->MessageHandle(hwnd, message, wparam, lparam);
+	return pFramework->MessageHandle(hwnd, message, wparam,lparam);
 }

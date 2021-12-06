@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="DrawTriangle.cpp" />
     <ClCompile Include="WinMain.cpp" />
@@ -160,6 +161,13 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
+=======
+    <ClCompile Include="D3DFrameWork.cpp" />
+    <ClCompile Include="WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D3DFrameWork.h" />
+>>>>>>> 1bcc16f5921a1098ffafa30392582ff2043fae5f
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
