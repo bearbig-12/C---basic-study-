@@ -3,8 +3,8 @@
 
 void D3DFrameWork::Initialize(HINSTANCE hInstance, int width, int height)
 {
-	gScreenWidth = width;
-	gScreenHeight = height;
+	mScreenWidth = width;
+	mScreenHeight = height;
 
 	InitWindow(hInstance);
 	InitD3D();
@@ -35,7 +35,7 @@ void D3DFrameWork::InitWindow(HINSTANCE hInstance)
 	}
 
 
-	RECT wr{ 0, 0, gScreenWidth, gScreenHeight };
+	RECT wr{ 0, 0, mScreenWidth, mScreenHeight };
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
 
@@ -87,8 +87,8 @@ void D3DFrameWork::InitD3D()
 	ZeroMemory(&scd, sizeof(DXGI_SWAP_CHAIN_DESC));
 	scd.BufferCount = 1;
 	scd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-	scd.BufferDesc.Width = gScreenWidth;
-	scd.BufferDesc.Height = gScreenHeight;
+	scd.BufferDesc.Width = mScreenWidth;
+	scd.BufferDesc.Height = mScreenHeight;
 	scd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	scd.OutputWindow = mHwnd;
 	scd.Windowed = TRUE;
@@ -139,7 +139,7 @@ void D3DFrameWork::OnResize()
 	/////////////////////////////////////////
 
 
-	mspSwapChain->ResizeBuffers(0, gScreenWidth, gScreenHeight, DXGI_FORMAT_UNKNOWN, 0);
+	mspSwapChain->ResizeBuffers(0, mScreenWidth, mScreenHeight, DXGI_FORMAT_UNKNOWN, 0);
 
 
 	// ∑ª¥ı≈∏∞Ÿ
@@ -154,7 +154,7 @@ void D3DFrameWork::OnResize()
 	// ±Ì¿Ã-Ω∫≈ŸΩ«
 	CD3D11_TEXTURE2D_DESC dtd(
 		DXGI_FORMAT_D24_UNORM_S8_UINT,
-		gScreenWidth, gScreenHeight,
+		mScreenWidth, mScreenHeight,
 		1,
 		1,
 		D3D11_BIND_DEPTH_STENCIL
@@ -182,7 +182,7 @@ void D3DFrameWork::OnResize()
 
 	// ∫‰∆˜∆Æ(View-Port)
 	CD3D11_VIEWPORT viewport(0.0f, 0.0f,
-		static_cast<float>(gScreenWidth), static_cast<float>(gScreenHeight));
+		static_cast<float>(mScreenWidth), static_cast<float>(mScreenHeight));
 
 
 	mspDeviceContext->RSSetViewports(1, &viewport);
@@ -256,7 +256,7 @@ LRESULT D3DFrameWork::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 	{
 	case WM_PAINT:
 	{
-		if (gResizing)
+		if (mResizing)
 		{
 			RenderFrame();
 		}
@@ -271,35 +271,35 @@ LRESULT D3DFrameWork::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
 
 	case WM_SIZE:
-		gScreenWidth = LOWORD(lparam);
-		gScreenHeight = HIWORD(lparam);
+		mScreenWidth = LOWORD(lparam);
+		mScreenHeight = HIWORD(lparam);
 
 		if (mspDevice)
 		{
 			if (wparam == SIZE_MINIMIZED)
 			{
-				gMinimized = true;
-				gMaximized = false;
+				mMinimized = true;
+				mMaximized = false;
 			}
 			else if (wparam == SIZE_MAXIMIZED)
 			{
-				gMinimized = false;
-				gMaximized = true;
+				mMinimized = false;
+				mMaximized = true;
 				OnResize();
 			}
 			else if (wparam == SIZE_RESTORED)
 			{
-				if (gMinimized)
+				if (mMinimized)
 				{
-					gMinimized = false;
+					mMinimized = false;
 					OnResize();
 				}
-				else if (gMaximized)
+				else if (mMaximized)
 				{
-					gMaximized = false;
+					mMaximized = false;
 					OnResize();
 				}
-				else if (gResizing)
+				else if (mResizing)
 				{
 
 
@@ -315,13 +315,13 @@ LRESULT D3DFrameWork::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
 
 	case WM_ENTERSIZEMOVE:
-		gResizing = true;
+		mResizing = true;
 		return 0;
 		break;
 
 
 	case WM_EXITSIZEMOVE:
-		gResizing = false;
+		mResizing = false;
 		OnResize();
 		return 0;
 		break;

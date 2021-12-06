@@ -15,14 +15,16 @@ private:
 	const std::wstring gTitle{ L"Direct3D Example" };
 
 protected:
-	int gScreenWidth{ 800 };
-	int gScreenHeight{ 600 };
-	bool gMinimized{ false };
-	bool gMaximized{ false };
-	bool gResizing{ false };
+	int mScreenWidth{ 800 };
+	int mScreenHeight{ 600 };
+	bool mMinimized{ false };
+	bool mMaximized{ false };
+	bool mResizing{ false };
 
 	HWND mHwnd{};
 	HINSTANCE mInstance{};
+
+	
 
 	Microsoft::WRL::ComPtr<ID3D11Device>			mspDevice{};
 	Microsoft::WRL::ComPtr<ID3D11DeviceContext>		mspDeviceContext{};
