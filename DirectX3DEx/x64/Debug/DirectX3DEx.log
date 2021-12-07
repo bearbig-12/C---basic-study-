@@ -1,12 +1,4 @@
-﻿  D3DFramework.cpp
-  DrawTriangle.cpp
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\DrawTriangle.h(26,10): error C3668: 'DrawTriangle::Destroy': 재정의 지정자 'override'가 있는 메서드가 기본 클래스 메서드를 재정의하지 않았습니다.
+﻿  KeyWord.cpp
   WinMain.cpp
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\WinMain.cpp(11,15): error C2259: 'D3DFramework': 추상 클래스를 인스턴스화할 수 없습니다.
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\D3DFramework.h(11): message : 'D3DFramework' 선언을 참조하십시오.
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\WinMain.cpp(11,15): message : 다음 멤버가 원인입니다.
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\WinMain.cpp(11,15): message : 'void D3DFramework::Render(void)': abstract입니다.
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\D3DFramework.h(53): message : 'D3DFramework::Render' 선언을 참조하십시오.
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\WinMain.cpp(14,14): error C2039: 'Destroy': 'D3DFramework'의 멤버가 아닙니다.
-D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\D3DFramework.h(11): message : 'D3DFramework' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
+  DirectX3DEx.vcxproj -> D:\Git hub\GameCanvus C++\C---basic-study-\DirectX3DEx\x64\Debug\DirectX3DEx.exe

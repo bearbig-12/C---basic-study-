@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="DrawTriangle.cpp" />
+    <ClCompile Include="KeyWord.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>

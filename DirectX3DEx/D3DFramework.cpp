@@ -198,6 +198,7 @@ void D3DFramework::RenderFrame()
 		1.0f,
 		0);
 
+	Render();
 
 	// ±×¸®±â
 	mspSwapChain->Present(0, 0);
@@ -248,6 +249,10 @@ void D3DFramework::GameLoop()
 		}
 	}
 
+}
+
+void D3DFramework::Render()
+{
 }
 
 LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
