@@ -45,3 +45,13 @@
 //	ClearRenderTargetView
 //	ClearDepthStencilView
 //	Draw
+
+
+// 텍스쳐
+
+//		1. 버텍스 정보에 텍스쳐 좌표 (u, v) 추가
+//		2. 텍스쳐 생성 (ID3D11Texture2D)
+//		3. 픽셀 데이터 = 배열
+//		4. 3번에 대한 리소스 뷰를 생성 (ID3D11ShaderResourceView)
+//		5. 입력 레이아웃 변경 (1번)
+//		6. 랜더링 ( 파이프 라인에 텍스쳐 정보추가)
