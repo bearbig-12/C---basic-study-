@@ -1,14 +1,19 @@
 #include "D3DFrameWork.h"
+
+#include <sstream>
+
 #pragma comment (lib, "d3d11.lib")
 
 void D3DFramework::Initialize(HINSTANCE hInstance, int width, int height)
 {
 	mScreenWidth = width;
 	mScreenHeight = height;
+	mPaused = false;
 
 	InitWindow(hInstance);
 	InitD3D();
 }
+
 void D3DFramework::InitWindow(HINSTANCE hInstance)
 {
 	WNDCLASSEX wc;
@@ -21,7 +26,7 @@ void D3DFramework::InitWindow(HINSTANCE hInstance)
 
 
 	wc.style = CS_HREDRAW | CS_VREDRAW;
-	wc.lpszClassName = gClassName.c_str();
+	wc.lpszClassName = mClassName.c_str();
 	wc.hInstance = mInstance;
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = nullptr;
@@ -38,11 +43,12 @@ void D3DFramework::InitWindow(HINSTANCE hInstance)
 	RECT wr{ 0, 0, mScreenWidth, mScreenHeight };
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
+	mTitleText = mTitle;
 
 	mHwnd = CreateWindowEx(
 		NULL,
-		gClassName.c_str(),
-		gTitle.c_str(),
+		mClassName.c_str(),
+		mTitleText.c_str(),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT,
 		CW_USEDEFAULT,
@@ -115,6 +121,34 @@ void D3DFramework::InitD3D()
 
 
 	OnResize();
+
+}
+
+void D3DFramework::CalculateFPS()
+{
+	// 매 업데이트 마다 불림
+	static int FrameCount{ 0 };
+	static float timeElapsed{ 0.0f }; // 경과시간
+
+	FrameCount++;
+
+	if (mTimer.TotalTime() - timeElapsed >= 1.0f)	// 1초마다 fps 갱신
+	{
+		float fps = (float)FrameCount; // 1초에 몇프레임을 그리느냐
+		float mspf = 1000.0f / fps;	   // 한프레임을 걸리는데 걸리는 시간
+
+		std::wostringstream oss;
+		oss.precision(6); //소숫점 6자리까지
+
+		oss << mTitleText << L" - " <<
+			L"FPS : " << fps <<
+			L", Frame Time : " << mspf << L"(ms)";
+
+		SetWindowText(mHwnd, oss.str().c_str());
+
+		FrameCount = 0;
+		timeElapsed += 1.0f; // 1초 경과
+	}
 
 }
 
@@ -223,11 +257,13 @@ void D3DFramework::Destroy()
 
 
 	DestroyWindow(mHwnd);
-	UnregisterClass(gClassName.c_str(), mInstance);
+	UnregisterClass(mClassName.c_str(), mInstance);
 }
 
 void D3DFramework::GameLoop()
 {
+	mTimer.Start();
+
 	MSG msg{};
 	while (true)
 	{
@@ -244,21 +280,45 @@ void D3DFramework::GameLoop()
 		}
 		else
 		{
-			// Game Loop
-			RenderFrame();
+			mTimer.Update();
+
+			if (mPaused)
+			{
+				Sleep(100);	// 0.1초 
+			}
+			else
+			{
+				CalculateFPS();
+
+				Update(mTimer.DeltaTime());
+				// Game Loop
+				RenderFrame();
+			}
+		
 		}
 	}
 
 }
 
-void D3DFramework::Render()
-{
-}
+
 
 LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message)
 	{
+	case WM_ACTIVATE:
+		if (LOWORD(wparam) == WA_INACTIVE)
+		{
+			mPaused = true;
+			mTimer.Stop();
+		}
+		else
+		{
+			mPaused = false;
+			mTimer.Resume();
+		}
+		break;
+
 	case WM_PAINT:
 	{
 		if (mResizing)
@@ -283,11 +343,20 @@ LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 		{
 			if (wparam == SIZE_MINIMIZED)
 			{
+				if (!mPaused)
+				{
+					mTimer.Stop();
+				}
+				mPaused = true;
+
 				mMinimized = true;
 				mMaximized = false;
 			}
 			else if (wparam == SIZE_MAXIMIZED)
 			{
+				mTimer.Resume();
+				mPaused = false;
+
 				mMinimized = false;
 				mMaximized = true;
 				OnResize();
@@ -296,11 +365,17 @@ LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 			{
 				if (mMinimized)
 				{
+					mPaused = false;
+					mTimer.Resume();
+
 					mMinimized = false;
 					OnResize();
 				}
 				else if (mMaximized)
 				{
+					mPaused = false;
+					mTimer.Resume();
+
 					mMaximized = false;
 					OnResize();
 				}
@@ -311,6 +386,9 @@ LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 				}
 				else
 				{
+					mPaused = false;
+					mTimer.Resume();
+
 					OnResize();
 				}
 			}
@@ -361,8 +439,7 @@ LRESULT D3DFramework::MessageHandle(HWND hwnd, UINT message, WPARAM wparam, LPAR
 	return LRESULT();
 }
 
-LRESULT D3DFramework::WindowProc(HWND hwnd, UINT message,
-	WPARAM wparam, LPARAM lparam)
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	D3DFramework* pFramework = reinterpret_cast<D3DFramework*>(
 		GetWindowLongPtr(hwnd, GWLP_USERDATA));

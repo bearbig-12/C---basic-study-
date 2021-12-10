@@ -15,20 +15,19 @@ struct PIn
 
 
 float4 main(PIn input) : SV_TARGET
-
 {
 	float4 result = shaderTexture.Sample(Sampler, input.tex);
 
 	
-	float aver = (result[0] + result[1] + result[2]) / 3;
-	if (aver > 0.6)
-	{
-		result[0] = result[1] = result[2] = 255;
-	}
-	else
-	{
-		result[0] = result[1] = result[2] = 0;
-	}
+	//float aver = (result[0] + result[1] + result[2]) / 3;
+	//if (aver > 0.6)
+	//{
+	//	result[0] = result[1] = result[2] = 255;
+	//}
+	//else
+	//{
+	//	result[0] = result[1] = result[2] = 0;
+	//}
 
 	//result[0] = aver;
 	//result[1] = aver;

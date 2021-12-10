@@ -17,6 +17,8 @@ void DrawTriangle::Initialize(HINSTANCE hInstance, int width, int height)
 
 void DrawTriangle::Destroy()
 {
+	mspBlendState.Reset();
+	mspSamplerState.Reset();
 	mspTextureView.Reset();
 	mspTexture.Reset();
 	
@@ -40,8 +42,9 @@ void DrawTriangle::Render()
 	//mspDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_);
 
 	mspDeviceContext->PSSetShaderResources(0, 1, mspTextureView.GetAddressOf());
-
-
+	
+	mspDeviceContext->PSSetSamplers(0, 1, mspSamplerState.GetAddressOf());
+	mspDeviceContext->OMSetBlendState(mspBlendState.Get(), nullptr,0xffffffff);
 	mspDeviceContext->Draw(4,0);
 	//mspDeviceContext->Draw(4, 0);
 	
@@ -74,11 +77,42 @@ HRESULT DrawTriangle::CreateTextureFromBMP()
 	file.seekg(bmh.bfOffBits);
 	// 5. ºñÆ®¸Ê ÀÐ±â
 	int pitch = bmi.biWidth * (bmi.biBitCount / 8);
-	for (int y = bmi.biHeight - 1; y >= 0; --y)
+
+	/*for (int y = bmi.biHeight - 1; y >= 0; --y)
 	{
 		file.read(&pPixels[y * pitch], pitch);
-	}
+	}*/
 
+	int index{};
+	char r{}, g{}, b{}, a{};
+
+	for (int y{ bmi.biHeight - 1 }; y >= 0; --y)
+	{
+		index = y * pitch;
+		for (int x{ 0 }; x < bmi.biWidth; ++x)
+		{
+			file.read(&b, 1);
+			file.read(&g, 1);
+			file.read(&r, 1);
+			file.read(&a, 1);
+
+			if (static_cast<unsigned char>(r) == 30 && 
+				static_cast<unsigned char>(g) == 199 &&
+				static_cast<unsigned char>(b) == 250)
+			{
+				pPixels[index] = pPixels[index + 1] = pPixels[index + 2] = pPixels[index + 3] = 0;
+			}
+			else
+			{
+				pPixels[index] = b;
+				pPixels[index +1] = g;
+				pPixels[index + 2] = r;
+				pPixels[index + 3] = 255;
+
+			}
+			index += 4;
+		}
+	}
 	file.close();
 
 
@@ -154,6 +188,41 @@ void DrawTriangle::InitTriangle()
 	mspDeviceContext->Unmap(
 		mspVertexBuffer.Get(), 0);
 
+	float border[4]{ 0.0f,0.0f,0.0f,0.0f };
+
+	CD3D11_SAMPLER_DESC sd(
+		D3D11_FILTER_MIN_MAG_MIP_POINT,
+		D3D11_TEXTURE_ADDRESS_CLAMP,
+		D3D11_TEXTURE_ADDRESS_CLAMP,
+		D3D11_TEXTURE_ADDRESS_CLAMP,
+		0.0f,
+		1,
+		D3D11_COMPARISON_ALWAYS,
+		border,
+		0,
+		1
+	);
+	mspDevice->CreateSamplerState(&sd, mspSamplerState.ReleaseAndGetAddressOf());
+
+	D3D11_BLEND_DESC blend_desc;
+	ZeroMemory(&blend_desc, sizeof(D3D11_BLEND_DESC));
+
+	blend_desc.RenderTarget[0].BlendEnable = true;
+
+	// source * 1 + destination * (1-alpha)
+	blend_desc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blend_desc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;	// ÇÈ¼¿½¦ÀÌ´õ
+	blend_desc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;	// ·»´õÅ¸°Ù
+
+	//Alpha : src * 1 + dst * 0
+	blend_desc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blend_desc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blend_desc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+
+	
+	blend_desc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+
+	mspDevice->CreateBlendState(&blend_desc, mspBlendState.ReleaseAndGetAddressOf());
 }
 
 void DrawTriangle::InitPipeline()

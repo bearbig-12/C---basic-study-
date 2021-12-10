@@ -142,11 +142,13 @@
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="DrawTriangle.cpp" />
     <ClCompile Include="KeyWord.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D3DFramework.h" />
     <ClInclude Include="DrawTriangle.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">

@@ -21,6 +21,8 @@ class DrawTriangle :
     Microsoft::WRL::ComPtr<ID3D11PixelShader> mspPixelShader;
     Microsoft::WRL::ComPtr<ID3D11Texture2D>   mspTexture;
     Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> mspTextureView;
+    Microsoft::WRL::ComPtr<ID3D11SamplerState> mspSamplerState;
+    Microsoft::WRL::ComPtr<ID3D11BlendState> mspBlendState;
 
 public:
     void Initialize(HINSTANCE hInstance,
