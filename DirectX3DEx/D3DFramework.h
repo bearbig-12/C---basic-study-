@@ -8,6 +8,7 @@
 #include <wrl/client.h>
 #include <d3d11.h>
 #include "Timer.h"
+#include "Input.h"
 
 class D3DFramework
 {
@@ -25,6 +26,7 @@ protected:
 
 	std::wstring mTitleText{};
 	MyUtil::Timer mTimer;
+	MyUtil::Input mInput;
 
 	HWND mHwnd{};
 	HINSTANCE mInstance{};
